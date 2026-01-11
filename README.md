@@ -1,11 +1,11 @@
 # Vehicle Count Challenge - Adaptive Computer Vision Solution
 
-## 📝 Overview
+## Overview
 This project is a solution for the Vehant Technologies 2-Day Hackathon. It addresses the challenge of counting vehicles moving away from a static camera using **classical computer vision techniques** exclusively.
 
 Per the challenge constraints, **no deep learning models** (YOLO, SSD, etc.) were used. Instead, we engineered an **Adaptive Hybrid Engine** that intelligently switches between two specialized processing pipelines (Day vs. Night) to handle varying lighting conditions robustly.
 
-## 📂 Submission Structure
+## Submission Structure
 The submission is modularized for clarity and maintainability:
 
 * **`main.py`**: The entry point containing the `Solution` class and the mandatory `forward()` method.
@@ -13,7 +13,7 @@ The submission is modularized for clarity and maintainability:
 * **`requirements.txt`**: A list of standard Python library dependencies.
 * **`README.md`**: This documentation file.
 
-## ⚙️ Setup & Execution
+## Setup & Execution
 
 ### Prerequisites
 * Python 3.x
@@ -50,7 +50,7 @@ Final Vehicle Count: 42
 
 ```
 
-## 🧠 Methodology & Algorithm
+## Methodology & Algorithm
 
 The core innovation of this solution is the **Adaptive Scene Analysis**, which allows the system to "understand" the environment before processing it.
 
@@ -86,7 +86,7 @@ At night, visibility is low, and vehicles often appear fragmented (e.g., two dis
 * **Tracking:** Kalman Filter. Unlike simple centroid tracking, the Kalman Filter maintains an internal state (velocity/position). If a vehicle enters a shadow and detection is lost, the filter predicts its new location, ensuring continuity and preventing double-counting.
 * **Flash Suppression:** We detect global brightness spikes (camera auto-exposure adjustment) and skip those frames to prevent false positives.
 
-## 📌 Assumptions & Design Choices
+## Assumptions & Design Choices
 
 * **Static Camera:** The solution assumes a fixed camera position. No ego-motion compensation is applied.
 * **Directionality:** The logic counts vehicles moving away from the camera (downward flow).
